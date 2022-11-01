@@ -33,7 +33,7 @@ jobs:
 
     - name: Build, tag, and push image to Amazon ECR
       env:
-        GHCR_REGISTRY: ghcr.io/shboddu/
+        GHCR_REGISTRY: ghcr.io/shboddu
         GHCR_REPOSITORY: docker_nodejs_demo
         
       run: |
