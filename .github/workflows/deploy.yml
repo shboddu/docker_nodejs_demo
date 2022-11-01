@@ -38,5 +38,5 @@ jobs:
         
       run: |
         IMAGE_TAG=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-        docker build -t $GHCR_REGISTRY/$GHCR_REPOSITORY:$IMAGE_TAG .
-        docker push $GHCR_REGISTRY/$GHCR_REPOSITORY:$IMAGE_TAG
+        docker build -t $GHCR_REGISTRY/$GHCR_REPOSITORY:${{ env.tag }} .
+        docker push $GHCR_REGISTRY/$GHCR_REPOSITORY:${{ env.tag }}
