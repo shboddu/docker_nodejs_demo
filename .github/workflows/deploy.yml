@@ -33,7 +33,7 @@ jobs:
 
     - name: Build, tag, and push image to Amazon ECR
       env:
-        GHCR_REGISTRY: ${{ steps.login-ghcr.outputs.registry }}
+        GHCR_REGISTRY: docker.pkg.github.com
         GHCR_REPOSITORY: docker_nodejs_demo
         
       run: |
