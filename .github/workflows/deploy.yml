@@ -30,7 +30,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       id: login-ghcr
       with:
-        image: nodejs
+        image: shboddu/nodejs
         registry: docker.pkg.github.com
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
