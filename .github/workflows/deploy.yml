@@ -31,12 +31,12 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build, tag, and push image to Amazon ECR
-      env:
-        GHCR_REGISTRY: ghcr.io/shboddu
-        GHCR_REPOSITORY: docker_nodejs_demo
+#     - name: Build, tag, and push image to Amazon ECR
+#       env:
+#         GHCR_REGISTRY: ghcr.io/shboddu
+#         GHCR_REPOSITORY: docker_nodejs_demo
         
-      run: |
-        IMAGE_TAG=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-        docker build -t $GHCR_REGISTRY/$GHCR_REPOSITORY:${{ env.tag }} .
-        docker push $GHCR_REGISTRY/$GHCR_REPOSITORY:${{ env.tag }}
+#       run: |
+#         IMAGE_TAG=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+#         docker build -t $GHCR_REGISTRY/$GHCR_REPOSITORY:${{ env.tag }} .
+#         docker push $GHCR_REGISTRY/$GHCR_REPOSITORY:${{ env.tag }}
