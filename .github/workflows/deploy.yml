@@ -31,6 +31,7 @@ jobs:
       id: login-ghcr
       with:
         image: nodejs/demo
+        tags: ${{ steps.repository.outputs.tag }}, latest
         registry: docker.pkg.github.com
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
