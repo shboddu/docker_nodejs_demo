@@ -49,6 +49,16 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: ghcr.io/${{ github.repository }}:${{ steps.repository.outputs.tag }}
+    
+    - name: tag push 
+      uses: shrink/actions-docker-registry-tag@v3
+      with:
+        registry: ghcr.io
+        repository: ${{ github.repository }}
+        target: sha-${{ github.sha }}
+        tags: |
+          ${{ steps.repository.outputs.tag }}
+          latest
 
 #     - name: Build, tag, and push image to Amazon ECR
 #       env:
