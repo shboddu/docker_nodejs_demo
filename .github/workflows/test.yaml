@@ -1,39 +1,23 @@
 on:
   push:
     tags:
-      - 'v*'
+      - '*'
 
 jobs:
   test-tag:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      packages: write
     steps:
       -
         name: Checkout repository
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
+          
       -
         name: Get tag
         id: repository
 #         run: echo "tag=$(git describe --tags HEAD)" > $GITHUB_ENV
         run: echo "tag=$(git describe --tags $(git rev-list --tags --max-count=1))" > $GITHUB_ENV
-        
-      - uses: nowsprinting/check-version-format-action@v3
-        id: version
-        with:
-          prefix: 'v'
-
-      - name: Version tag only step
-        run: |
-          echo "Found valid version format in tag!"
-          echo "Full version: ${{ steps.version.outputs.full }}"
-          echo "Major version: ${{ steps.version.outputs.major }}"
-          echo "Major with pre-release: ${{ steps.version.outputs.major_prerelease }}"
-        if: steps.version.outputs.is_valid == 'true'
-
-      - name: Stable version only step
-        run: |
-          echo "Found stable version in tag!"
-        if: steps.version.outputs.is_stable == 'true'
