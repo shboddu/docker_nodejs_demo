@@ -8,6 +8,7 @@ name: Build and publish the container image
     branches:
       - 'master'
 
+
 jobs:
   build-and-test:
     permissions:
