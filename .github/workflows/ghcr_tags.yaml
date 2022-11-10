@@ -1,5 +1,5 @@
 ---
-name: Build and publish the container image
+name: Build and publish the image from reusable repo
 
 "on":
   push:
