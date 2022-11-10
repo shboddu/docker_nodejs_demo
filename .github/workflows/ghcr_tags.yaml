@@ -1,19 +1,19 @@
-# ---
-# name: Build and publish the container image
+---
+name: Build and publish the container image
 
-# "on":
-#   push:
-#     tags:
-#       - '*'
-#     branches:
-#       - 'master'
+"on":
+  push:
+    tags:
+      - '*'
+    branches:
+      - 'master'
 
-# jobs:
-#   build-and-test:
-#     permissions:
-#       id-token: write # need this for OIDC
-#       contents: read
-#     uses: shboddu/poetry-test/blob/master/.github/GitHub-ci.yaml@master
-#     with:
-#       env: ${{ github.event.inputs.environment }}
-#     secrets: inherit
+jobs:
+  build-and-test:
+    permissions:
+      id-token: write # need this for OIDC
+      contents: read
+    uses: shboddu/poetry-test/blob/master/.github/GitHub-ci.yaml@master
+    with:
+      env: ${{ github.event.inputs.environment }}
+    secrets: inherit
