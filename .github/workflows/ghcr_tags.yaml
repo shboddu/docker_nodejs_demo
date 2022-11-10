@@ -14,7 +14,7 @@ jobs:
     permissions:
       id-token: write # need this for OIDC
       contents: read
-    uses: https://github.com/shboddu/poetry-test/blob/master/.github/GitHub-ci2.yaml@master
+    uses: https://github.com/shboddu/poetry-test/blob/master/.github/GitHub-ci3.yaml@master
     with:
       env: ${{ github.event.inputs.environment }}
     secrets: inherit
