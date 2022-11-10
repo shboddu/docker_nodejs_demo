@@ -1,5 +1,5 @@
 ---
-name: Build and publish the image from reusable repo
+name: Mahesh Build and publish the image from reusable repo
 
 "on":
   push:
@@ -17,4 +17,5 @@ jobs:
     uses: https://github.com/shboddu/poetry-test/blob/master/.github/GitHub-ci2.yaml@master
     with:
       env: ${{ github.event.inputs.environment }}
+      
     secrets: inherit
